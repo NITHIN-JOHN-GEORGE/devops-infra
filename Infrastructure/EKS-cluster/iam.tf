@@ -112,11 +112,11 @@ resource "aws_iam_role_policy_attachment" "CloudWatchAgentServerPolicy" {
 # Create IAM OIDC identity providers to establish trust between an OIDC-compatible IdP and your AWS account.
 
 data "tls_certificate" "cert" {
-  url = aws_eks_cluster.eks-cluster[0].identity[0].oidc[0].issuer
+  url = aws_eks_cluster.eks-cluster.identity[0].oidc[0].issuer
 }
 
 resource "aws_iam_openid_connect_provider" "cluster" {
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = [data.tls_certificate.cert.certificates[0].sha1_fingerprint]
-  url             = aws_eks_cluster.eks-cluster[0].identity[0].oidc[0].issuer
+  url             = aws_eks_cluster.eks-cluster.identity[0].oidc[0].issuer
 }

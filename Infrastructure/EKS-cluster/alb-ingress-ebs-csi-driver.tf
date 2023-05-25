@@ -628,7 +628,6 @@ resource "helm_release" "alb-ingress-controller" {
     kubernetes_cluster_role_binding.aws-load-balancer-controller-cluster-role-binding,
     kubernetes_service_account.aws-load-balancer-controller-service-account , 
     kubernetes_secret.aws-load-balancer-controller , 
-    helm_release.karpenter , 
     kubectl_manifest.karpenter-provisioner ]
   
   name       = "alb-ingress-controller"
@@ -650,7 +649,7 @@ resource "helm_release" "alb-ingress-controller" {
 }
 
 resource "helm_release" "aws-ebs-csi-driver" {
-  depends_on = [ aws_eks_cluster.eks-cluster , aws_eks_node_group.node-group-private , helm_release.karpenter , kubectl_manifest.karpenter-provisioner , aws_iam_role.ebs-csi ]
+  depends_on = [ aws_eks_cluster.eks-cluster , aws_eks_node_group.node-group-private , kubectl_manifest.karpenter-provisioner , aws_iam_role.ebs-csi ]
   name       = "aws-ebs-csi-driver"
   repository = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
   chart      = "aws-ebs-csi-driver"
