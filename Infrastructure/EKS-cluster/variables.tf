@@ -71,6 +71,13 @@ variable "AWS_SECRET_KEY" {
 variable "region"{
 }
 
+variable "jenkinsPassword" {
+
+}
+
+variable "jenkinsUsername" {
+  
+}
 
 variable "addons" {
   type = list(object({
@@ -93,3 +100,5 @@ variable "addons" {
     },
   ]
 }
+
+
