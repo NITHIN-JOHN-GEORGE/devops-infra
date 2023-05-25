@@ -14,10 +14,6 @@ variable "vpc_name" {
   description = "please enter a vpc_name for your new vpc"
 }
 
-variable "vpc_tags" {
-  type = map(string)
-  description = "please enter a custom tag for your vpc in a key value pair"
-}
 
 variable "eks_cluster_name" {
   type        = string
