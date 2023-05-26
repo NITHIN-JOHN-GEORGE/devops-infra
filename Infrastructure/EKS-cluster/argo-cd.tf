@@ -7,6 +7,8 @@ redis-ha:
 controller:
   enableStatefulSet: true
 server:
+  extraArgs:
+    - --insecure
   image:
     repository: argoproj/argocd
     tag: latest
@@ -24,7 +26,7 @@ server:
       alb.ingress.kubernetes.io/backend-protocol: HTTP
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
       alb.ingress.kubernetes.io/target-type: ip
-  hosts:
+    hosts:
     - "argocd.example.io"
   ingressGrpc:
     enabled: true
