@@ -8,6 +8,8 @@ EKS Cluster with ALB ingress controller and EBS storage class is configured with
 
 Jenkins is Automatically provisioned and all required plugins are installed once EKS Cluster is created and no manual configuration needed.
 
+ArgoCD also deployed to K8s cluster through Helm chart
+
 ![image](https://github.com/NITHIN-JOHN-GEORGE/node-js-ci-cd/assets/96073033/5807a3e1-5390-4d9c-bf17-24d92871ced8)
 
 ![image](https://github.com/NITHIN-JOHN-GEORGE/node-js-ci-cd/assets/96073033/8891bbff-8262-488c-9131-bdd097205e11)
