@@ -18,13 +18,14 @@ server:
   ingress:
     enabled: true
     ingressClassName: "alb"
-    https: false
     annotations:
-      alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/group.name: argocd
-      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
       alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/backend-protocol: HTTP
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
       alb.ingress.kubernetes.io/target-type: ip
+  hosts:
+    - "argocd.example.io"
   ingressGrpc:
     enabled: true
     isAWSALB: true
