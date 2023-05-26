@@ -37,6 +37,7 @@ controller:
   # Enable to initialize the Jenkins controller only once on initial installation.
   # Without this, whenever the controller gets restarted (Evicted, etc.) it will fetch plugin updates which has the potential to cause breakage.
   # Note that for this to work, `persistence.enabled` needs to be set to `true`
+  
   initializeOnce: true
 
  
@@ -44,7 +45,7 @@ controller:
     configScripts: 
       welcome-message: |
         jenkins:
-          systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
+          systemMessage: Welcome to our CI-CD server.  This Jenkins is configured and managed 'as code'.
 
 
   ingress:
