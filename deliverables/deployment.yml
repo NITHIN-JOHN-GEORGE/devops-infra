@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: image:latest
+        image: node-js-hello-world:latest
         ports:
         - containerPort: 3000
