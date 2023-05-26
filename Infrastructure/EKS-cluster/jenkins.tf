@@ -48,7 +48,7 @@ controller:
 
 
   ingress:
-    enabled: false
+    enabled: true
     apiVersion: "networking.k8s.io/v1"
     annotations: |
       alb.ingress.kubernetes.io/scheme: internet-facing
