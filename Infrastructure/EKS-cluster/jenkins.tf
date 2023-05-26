@@ -52,7 +52,7 @@ controller:
     apiVersion: "networking.k8s.io/v1"
     annotations: 
       alb.ingress.kubernetes.io/scheme: internet-facing
-      alb.ingress.kubernetes.io/load-balancer-name: vault-lb
+      alb.ingress.kubernetes.io/load-balancer-name: jenkins-lb
       alb.ingress.kubernetes.io/target-type: ip
     ingressClassName: "alb"
 
