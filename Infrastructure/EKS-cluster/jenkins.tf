@@ -1,7 +1,7 @@
 data "template_file" "jenkins" {
   template = <<EOF
 controller:
-  adminSecret: false
+  adminSecret: true
   adminUser: "${var.jenkinsUsername}"
   adminPassword: "${var.jenkinsPassword}"
   serviceType: LoadBalancer
