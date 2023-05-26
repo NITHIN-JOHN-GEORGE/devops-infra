@@ -26,27 +26,26 @@ controller:
   installLatestSpecifiedPlugins: true
   additionalPlugins: []
 
-  JCasC:
-    defaultConfig: true
-    configScripts:
-      welcome-message: |
-       jenkins:
-         systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
+JCasC:
+  defaultConfig: true
+  configScripts:
+    welcome-message: |
+      jenkins:
+        systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
 
 
-  ingress:
-    enabled: true
-    paths: 
-     - backend:
-         serviceName: jenkins
-         servicePort: 80
-
-    apiVersion: "networking.k8s.io/v1"
-    ingressClassName: "alb"
-    annotations: |
-      alb.ingress.kubernetes.io/scheme: internet-facing
-      alb.ingress.kubernetes.io/load-balancer-name: vault-lb
-      alb.ingress.kubernetes.io/target-type: ip
+ingress:
+  enabled: true
+  paths: 
+    - backend:
+        serviceName: jenkins
+        servicePort: 80
+  apiVersion: "networking.k8s.io/v1"
+  ingressClassName: "alb"
+  annotations: |
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/load-balancer-name: vault-lb
+    alb.ingress.kubernetes.io/target-type: ip
 
 persistence:
   enabled: true
