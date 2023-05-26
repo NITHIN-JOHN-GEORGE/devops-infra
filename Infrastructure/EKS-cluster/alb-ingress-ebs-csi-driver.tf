@@ -489,8 +489,7 @@ data "template_file" "ebs-csi-driver-values" {
             eks.amazonaws.com/role-arn: "${aws_iam_role.ebs-csi.arn}"
     storageClasses: 
      - name: ebs-sc
-       annotations:
-          storageclass.kubernetes.io/is-default-class: "true"
+
   EOF
 }
 
