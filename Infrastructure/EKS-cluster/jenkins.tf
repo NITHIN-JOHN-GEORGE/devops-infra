@@ -4,44 +4,50 @@ controller:
   adminSecret: true
   adminUser: "${var.jenkinsUsername}"
   adminPassword: "${var.jenkinsPassword}"
-  serviceType: LoadBalancer
+  servicePort:80
+  serviceType: ClusterIP
   installPlugins:
-    - kubernetes:3900.va_dce992317b_4
+    - kubernetes:3923.v294a_d4250b_91
     - workflow-aggregator:596.v8c21c963d92d
-    - git:5.0.0
+    - git:5.0.2
     - configuration-as-code:1625.v27444588cc3d
+    - nodejs:1.6.0
+    - credentials:1236.v31e44e6060c0
+    - credentials-binding:604.vb_64480b_c56ca_
+    - saferestart:0.7
+    - generic-webhook-trigger:1.86.3
+    - postbuild-task:1.9
+    - blueocean:1.27.4
+    - ws-cleanup:0.45
+    - role-strategy:633.v836e5b_3e80a_5
+    - job-dsl:1.83
+
+
   installLatestSpecifiedPlugins: true
   additionalPlugins: []
-  # ingress:
-  #   enabled: true
-  #   # Override for the default paths that map requests to the backend
-  #   paths: []
-  #   # - backend:
-  #   #     serviceName: ssl-redirect
-  #   #     servicePort: use-annotation
-  #   # - backend:
-  #   #     serviceName: >-
-  #   #       {{ template "jenkins.fullname" . }}
-  #   #     # Don't use string here, use only integer value!
-  #   #     servicePort: 8080
-  #   # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
-  #   # For Kubernetes v1.19+, use 'networking.k8s.io/v1'
-  #   apiVersion: "networking.k8s.io/v1"
-  #   labels: {}
-  #   annotations: 
-  #     kubernetes.io/ingress.class: nginx
-  #   # kubernetes.io/tls-acme: "true"
-  #   # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
-  #   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-  #   # ingressClassName: nginx
-  #   # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
-  #   # path: "/jenkins"
-  #   # configures the hostname e.g. jenkins.example.com
-  #   hostName:
-  #   tls:
-  #   # - secretName: jenkins.cluster.local
-  #   #   hosts:
-    #     - jenkins.cluster.local
+
+  JCasC:
+    defaultConfig: true
+    configScripts:
+      welcome-message: |
+       jenkins:
+         systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
+
+
+  ingress:
+    enabled: true
+    paths: 
+     - backend:
+         serviceName: jenkins
+         servicePort: 80
+
+    apiVersion: "networking.k8s.io/v1"
+    ingressClassName: "alb"
+    annotations: |
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/load-balancer-name: vault-lb
+      alb.ingress.kubernetes.io/target-type: ip
+
 persistence:
   enabled: true
   storageClass: ebs-sc
