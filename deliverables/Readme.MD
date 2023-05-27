@@ -416,3 +416,21 @@ Finished: SUCCESS
 
 
 ![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/3b63f62e-4c45-4313-865c-744bd3b6cb6d)
+
+## ArgoCD
+
+![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/b45b69f5-0ec9-433f-815c-3e2ec0d0fa7b)
+
+
+![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/5144b7e1-ace6-4bb1-bb2c-ae6c173ae5a7)
+
+
+![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/833d9b3d-f44b-48a9-833d-d04cd434f06c)
+
+# Response:
+
+![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/b9d2544c-decf-48ac-937d-bf316ff02507)
+
+![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/9a9ac182-cb09-4644-80d6-f0d2f517579b)
+
+![image](https://github.com/NITHIN-JOHN-GEORGE/devops-infra/assets/96073033/dec79d2f-67ca-4a50-9ee9-8ffa67727b51)
